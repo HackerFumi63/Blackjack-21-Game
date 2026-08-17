@@ -1,10 +1,41 @@
 # Blackjack 21
-#### Video Demo:  <https://youtu.be/1yahQrsyR78>
-#### Description: In this game, you will play the "twenty-one" blackjack card game.
-In my CS50 final project, Blackjack 21, I implemented the famous casino card game into my online website. If you don’t know how blackjack works, then I’ll explain it in simple terms. Every game starts with the dealer shuffling the deck to give every player and himself two cards face down. The goal of the game is to get close to 21 cards in value, but never more. Every player wages their chips or currency in the game and if you go over 21, you bust and lose the wager. For card values, everything is its numerical value with kings, queens, and jacks being counted as 10s respectively. You always want to be closer to 21 than the dealer, and you can choose to hit (get more cards), stand (stay), or fold (give up). An interesting thing to note is that one of the dealer’s cars will always be face up initially, and most dealers must draw a card if their total is 16 or less, and stand if their total is 17 or more. Another important note is that aces can count as either 10 or 1, but this can depend on the player's hand and the total value they wish to achieve.
-With my online website, I’ve decided to focus on 6 main elements while making the game: creating the deck of 52 cards and chips, shuffling the deck, betting, dealing the cards, implementing the game logic, and scoring. In this format, I was able to cut one huge problem set into 6 different categories as if it were a CS50 problem set. I’ve always thought the best way to code was to split big problems into multiple simpler problems. To start, let’s look at the creation and initialization process.
-I started by making my Python file which would be the bread and butter of the entire project. I first decided to establish my 'Clubs ♣', 'Diamonds ♦', 'Hearts ♥', 'Spades ♠', and so forth. I declared each of their values and also added a randomness function to shuffle the deck without bias. I then established the values for the chips and then went to calculate the total chip value. At first, I wanted to have it so my code would add in chips to bet on and whatnot but I felt it was too complex in its own right so I scrapped it entirely. I instead decided to make the betting factor whatever dollar value the user wanted to bet on. The users were also able to double on their bet, split their cards, stay as they were, hit for more cards, or fold to save themselves.
-One interesting thing I decided to implement was the usage of cards flipped down which I was then able to flip up and reveal their value. This animation was really only used for the dealer as you were only able to see one of their cards. Scoring wise was very simple to implement although I will admit I did use the CS50 AI and ChatGTP to help refine some rough edges of my code which I deemed inefficient or defective at times.
-One of the toughest challenges I faced while working on this project was the utilization of sprites and custom images for cards. Obviously, putting every single type of card into the game would take a long time and I decided to play a more efficient theory. I would use 4 different sprites for the club, spade, diamond, and hearts to hold all 13 cards at once. That way, I could have 52 cards put in 4x as effective. What I did was use the CSS and JavaScript to make a certain shape for every card so that the sprites were all used in an order of 5x3 with the bottom 2 missing. I will admit that this brought apart many challenges during the coding process as sometimes I put in the wrong order for the sprites which messed up the values for the cards. For example, I made it so that it went Aces, 2-10, Kings, Queens, and then Jacks. What I didn’t notice was that I accidentally had aces at the end which changed the entire numerical order of the cards by 1 each. This was problematic, to say the least.
-However, the biggest threat that I dealt with the entire project was easily trying to implement the betting system. This was not only an eyesore of code to work with, but the AI help that I tried to use only made the problem worse many times. No matter until the end, I worked my hardest through this project to implement all of David Mallan’s CS50 teachings into my own custom project which made me learn many new things about coding. The biggest lesson I learned through my final project, Blackjack 21, was the effort and resilience needed to work around problems, work through them, and truly take the time and effort to problem-solve the seemingly impossible. This was CS50x.
+
+A browser-based Blackjack game built to demonstrate core game logic, interactive UI design, state management, and the implementation of traditional card-game mechanics using JavaScript.
+
+[Try it out for yourself here] (https://hackerfumi63.github.io/Blackjack-21-Game/)
+
+## Overview
+
+**Role:** Developer and Designer
+**Context:** CS50 Final Project
+**Languages & Tools:** JavaScript, HTML, CSS, Git, GitHub Pages
+**Status:** Live Web Build / In Development
+
+## Main goals
+
+**Game Logic Implementation:** Built the core Blackjack gameplay system from scratch, including deck creation, card shuffling, dealing, hand-value calculation, Ace handling, dealer behavior, and win/loss conditions.
+
+**Browser-Based Gameplay:** Converted the project into a fully browser-playable game using JavaScript and DOM manipulation, allowing the game to run entirely client-side without requiring a backend server.
+
+**Interactive Betting System:** Implemented a chip-based betting system with player balance tracking, wager validation, and support for Blackjack actions such as Hit, Stand, and Double Down.
+
+**Visual Card System:** Used sprite sheets to display individual playing cards and chip graphics while keeping the number of required image assets relatively small.
+
+## Key Technical Implementations
+
+**Deck & Shuffle System:** Dynamically generates a standard 52-card deck and randomizes it using a JavaScript implementation of the Fisher-Yates shuffle.
+
+**Dynamic Hand Evaluation:** Calculates player and dealer hand values in real time, including automatically converting Aces from 11 to 1 when necessary to prevent a bust.
+
+**Dealer AI:** Implements traditional dealer behavior by automatically drawing cards until the dealer reaches a hand value of at least 17.
+
+**DOM-Based Game State:** Updates cards, chip totals, bets, game messages, and player actions dynamically without requiring the webpage to reload.
+
+**Sprite-Based Rendering:** Maps individual card values to positions within suit sprite sheets, allowing all 52 cards to be rendered from a small collection of image files.
+
+**Static Web Deployment:** Deployed the browser version through GitHub Pages, allowing the project to run publicly without a dedicated application server.
+
+## Current Development
+
+The core Blackjack gameplay is functional and publicly playable. Current development is focused on refining the betting and round-reset systems, improving game-state handling, polishing the interface, and completing additional mechanics such as splitting hands.
 
