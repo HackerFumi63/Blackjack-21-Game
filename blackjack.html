@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blackjack Game</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #002011;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            #game-container {
+                width: 80%;
+                max-width: 900px;
+                text-align: center;
+            }
+
+            .cards {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .card {
+                width: 80px;
+                height: 120px;
+                border-radius: 8px;
+                border: 1px solid #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #3498db;
+                color: #fff;
+            }
+
+            .buttons {
+                margin-top: 20px;
+            }
+
+            button {
+                padding: 10px 20px;
+                margin: 5px;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            button:hover {
+                background-color: #2980b9;
+            }
+
+            .back-home {
+                margin-top: 30px;
+                padding: 10px 20px;
+                background-color: #2ecc71;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            .back-home:hover {
+                background-color: #27ae60;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="game-container">
+            <h1>Blackjack Game</h1>
+            <p id="message">Welcome to Blackjack! Let's start.</p>
+
+            <!-- Displaying the current chips -->
+            <div id="chips-container">
+                <p>Chips: $100</p>
+                <!-- This will hold the images for chips -->
+                <div id="chip-images"></div>
+            </div>
+
+            <!-- Bet Section -->
+            <div id="bet-container">
+                <p>Place your bet:</p>
+                <input type="number" id="betInput" placeholder="Enter Bet (min $5)" min="5" value="5">
+                <p>Current Bet: $<span id="current-bet">0</span></p>
+                <button id="place-bet-button">Place Bet</button>
+            </div>
+        </div>
+
+        <div class="cards" id="player-hand"></div>
+        <div class="cards" id="dealer-hand"></div>
+
+        <div class="buttons">
+            <button onclick="hit()">Hit</button>
+            <button onclick="stand()">Stand</button>
+            <button onclick="doubleDown()">Double Down</button>
+            <button onclick="split()">Split</button>
+        </div>
+
+        <div>
+            <a href="index.html">
+                <button class="back-home">Back to Home</button>
+            </a>
+        </div>
+
+        <script src="blackjack.js"></script>
+
+        <script>
+            // Variables for player chips and current bet
+            let playerChips = 100;
+            let currentBet = 0;
+
+            // Update the chip display whenever the chips or bet change
+            function updateDisplay() {
+                document.getElementById('player-chips').textContent = playerChips;
+                document.getElementById('current-bet').textContent = currentBet;
+            }
+
+            // Event listener for the "Place Bet" button
+            document.getElementById('place-bet-button').addEventListener('click', function() {
+                // Get the bet value from the input field
+                const betValue = parseFloat(document.getElementById('betInput').value);
+
+                // Check if the bet is valid (greater than or equal to the minimum bet and not more than available chips)
+                if (isNaN(betValue) || betValue < 5 || betValue > playerChips) {
+                    alert('Invalid bet. Please enter a bet between $5 and your available chips.');
+                    return;
+                }
+
+                // Update the current bet and player's chips
+                currentBet = betValue;
+                playerChips -= currentBet;
+
+                // Update the display
+                updateDisplay();
+
+                // You can add logic here to start the game after placing the bet
+                alert('Bet placed! Starting the game...');
+            });
+        </script>
+    </body>
+
+</html>

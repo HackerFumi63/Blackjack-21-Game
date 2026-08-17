@@ -1,0 +1,156 @@
+#blackjack-21 {
+    font-family: fantasy, sans-serif;
+    /* Added fallback font */
+    font-size: 3em;
+    text-decoration: underline;
+    /* Corrected from text-emphasis */
+    color: white;
+}
+
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    /* Ensure image is responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+body {
+    background-color: #002011;
+    color: white;
+}
+
+h1 {
+    color: black;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+    color: grey;
+}
+
+li {
+    color: grey;
+}
+
+.card {
+    width: 88px;
+    height: 124px;
+    position: relative;
+    background-image: url('images/cards/sprite-sheet.png');
+    background-position: 0 0;
+    /* This will be dynamically updated in JS */
+    transform-style: preserve-3d;
+    /* Required for 3D transformations */
+    transition: transform 1s ease-in-out;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Ensures the back of the card is hidden during the flip */
+}
+
+.card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('images/Cards/Card_Back-88x124.png');
+    background-size: cover;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    /* Flip the card back */
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+    /* This rotates the entire card container */
+}
+
+.card img,
+.card .card-back {
+    backface-visibility: hidden;
+    /* Ensure the backface of the images is hidden */
+}
+
+.chips-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+#chips-container {
+    display: flex;
+    align-items: center;
+    /* Align items vertically */
+    justify-content: flex-start;
+    /* Align items to the left */
+    gap: 10px;
+    /* Add space between chips */
+    padding: 10px;
+    /* Add padding around the container */
+}
+
+.chip {
+    width: 64px;
+    /* Set width of the chip image */
+    height: 72px;
+    /* Set height of the chip image */
+    background-size: contain;
+    /* Make sure the chip image fits inside the div */
+    background-repeat: no-repeat;
+    /* Prevent background repetition */
+    margin: 5px;
+    /* Optional: Add margin between chips */
+}
+
+.chip-black {
+    background-position: 0 0;
+}
+
+/* Black chip at the first position */
+.chip-green {
+    background-position: -64px 0;
+}
+
+/* Green chip */
+.chip-blue {
+    background-position: -128px 0;
+}
+
+/* Blue chip */
+.chip-red {
+    background-position: -192px 0;
+}
+
+/* Red chip */
+
+#bet-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#bet-input {
+    width: 80px;
+    margin-right: 10px;
+}
+
+#place-bet-button {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#place-bet-button:hover {
+    background-color: #2980b9;
+}
